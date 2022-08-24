@@ -1,2 +1,2 @@
 # Full-Stack-Development
-College FDS Assignments
+College Full-Stack-Development Assignments
