@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "..\\Practical 2"
+		},
+		{
+			"path": "..\\Practical 3"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Practical 1"
+	}
+}

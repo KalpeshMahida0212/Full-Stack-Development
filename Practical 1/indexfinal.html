@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link href="media/title.png" rel="icon">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="app.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:200,100,400" rel="stylesheet" type="text/css" />
+       
+        <title>My Profile</title>
+        <style>
+                @keyframes blink {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: orange;
+  }
+}
+
+        </style>
+</head>
+<body>
+        <section class="showcase">
+                <header>
+                <!-- <h2 class="logo">My Profile</h2> -->
+                <img class="logo" src="media/logo.jfif" alt="logo">
+                <div class="toggle"></div>
+        </header>
+        
+        <video src="media/video.mp4" muted loop autoplay></video>
+        <div class="overlay"></div>
+        <div class="text" style="padding-top: 100px;">
+          <h2 id="text"></h2><br>
+          <h3>Computer Science Student</h3>
+          <p>I am currently working as a Web Developer at Aural in a professional environment to kick start my career by putting all my skills and knowledge to the test.</p>
+          <a href="#" style="color: white; border-style: groove;">Know More</a><br><br><br>
+          <div style="background-color: transparent; padding-left: -100px !important;"><ul class="social">
+            <li><a href="https://www.linkedin.com/in/kalpesh-mahida-778103212"><img src="media/linkedin.png"></a></li>
+            <li><a href="https://twitter.com/Predator_Op"><img src="media/twitter.png"></a></li>
+            <li><a href="https://www.instagram.com/kalpeshmahida_?utm_source=qr"><img src="media/instagram.png"></a></li>
+    </ul></div>
+          <br><br><br>
+  </div>
+        <div class="sidebar">
+                <img src="media/download.jpg" alt="charusat" class="logos">
+                <br><br><br>
+                <img class="logos" src="media/CSPIT.png" alt="CSPIT logo">
+        </div>
+        
+        
+        </section>
+        
+        <div class="menu">
+                <ul>
+                        <li><a href="#Home">Home</a></li>
+                        <li><a href="#Courses">Courses</a></li>
+                        <li><a href="#Certifications">Certifications</a></li>
+                        <li><a href="#Department">Department</a></li>
+                        <li><a href="#Contact">Contact me</a></li>
+                 </ul>
+        </div>
+        <footer>
+                <p class="copy" style="color: white;">&copy; Copyrights Reserved @20CS030 </p>
+        </footer> 
+        <script  src="./main.js"></script>
+        <script>
+                const txtFull = "Kalpesh Mahida"; //the text goes here
+const txtArr = txtFull.split("");
+
+function getRandomTime() {
+  return Math.random() * 0.5;
+}
+function getEle(id) {
+  return document.getElementById("text");
+}
+function ModifyTxt(el, txt) {
+  return (el.innerHTML = txt);
+}
+function writeOut(txtArr, curChar = 0) {
+  const randomTime = getRandomTime();
+  setTimeout(
+    () => {
+      const el = getEle("text");
+      let elTxt = el.innerHTML;
+      elTxt += txtArr[curChar];
+      ModifyTxt(el, elTxt);
+      //check if next iteration is out of range
+      if (curChar + 1 == txtArr.length) {
+        return deleteOut(txtArr, txtArr.length);
+      }
+      return writeOut(txtArr, curChar + 1);
+    },
+
+    randomTime * 1000
+  );
+}
+function deleteOut(txtArr, curChar = 0) {
+  const randomTime = getRandomTime();
+  setTimeout(
+    () => {
+      const el = getEle("text");
+      let elTxt = el.innerHTML;
+      //remove
+      const elTxtArr = elTxt.split("");
+      const elTxtArrLen = elTxtArr.length;
+      console.log(elTxtArr.length - 1);
+      const newElTxt = elTxtArr.splice(0, curChar - 1).join("");
+      ModifyTxt(el, newElTxt);
+      if (elTxtArrLen == 0) {
+        return writeOut(txtArr, 0);
+      }
+      return deleteOut(txtArr, elTxtArrLen - 1);
+    },
+
+    randomTime * 1000
+  );
+  return;
+}
+writeOut(txtArr);
+
+        </script>
+</body>
+</html>
