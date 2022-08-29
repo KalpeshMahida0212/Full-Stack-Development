@@ -10,7 +10,7 @@ function App() {
     return (
         <div className="App">
             <Navbar />
-            <h1>Kalpesh Mahida</h1>
+            <h1></h1>
             <BrowserRouter>
                 <Routes>
 					<Route exact path="/home" element={<Home />}  />
